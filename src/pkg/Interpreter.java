@@ -35,8 +35,8 @@ public class Interpreter {
         System.out.println("\nEnd of file reached.");
 
      //   for testing purposes:
-        System.out.println("\nIdentifier Table: \n\n");
-        p2.printIdTable();
+//        System.out.println("\nIdentifier Table: \n\n");
+//        p2.printIdTable();
     }
     
 }

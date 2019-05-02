@@ -16,7 +16,7 @@ begin
     input "how many times should loop run: ", max
     display "x will be changed ", max , " times"
     
-    display "Operation can be done with addition or multiplication."
+    display "Operation can be addition of 2 to x, or multiplication of x by 2"
     input "Enter 0 to use addition, enter non-zero integer to use multiplication: ", operation
     while i < max do
         if operation == 0 then
@@ -28,4 +28,5 @@ begin
         increment i
     endwhile
     display "x is now: ", x
+    display "Thank you ", str
 endfun main
