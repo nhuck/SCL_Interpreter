@@ -1,0 +1,4 @@
+  Thisif a dog3 dog 35 < 3 now 
+begin variable$ "while  uy" "endwhile
+buggers 7r r7 7
+if only the then was

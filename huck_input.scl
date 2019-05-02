@@ -1,0 +1,31 @@
+function main is
+variables
+    define i of type integer
+    define max of type integer
+    define x of type integer
+    define temp of type integer
+    define operation of type integer
+    define str of type string
+begin
+    display "This will serve as a test SCL Program"
+    input "Please Enter your name: ", str
+    set i = 0
+    input "Enter a value for integer x: ", x
+    display "Your chosen value of x is: ", x
+
+    input "how many times should loop run: ", max
+    display "x will be changed ", max , " times"
+    
+    display "Operation can be done with addition or multiplication."
+    input "Enter 0 to use addition, enter non-zero integer to use multiplication: ", operation
+    while i < max do
+        if operation == 0 then
+            set temp = x + 2
+        else
+            set temp = x * 2
+        endif
+        set x = temp
+        increment i
+    endwhile
+    display "x is now: ", x
+endfun main
