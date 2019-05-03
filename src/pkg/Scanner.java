@@ -116,7 +116,7 @@ public class Scanner {
                         break;
                     } else if (Character.isDigit(c)){
                         state = 16;                     //number (integer) literal
-                    } else if ((int) c == 10){
+                    } else if ((int) c == 10 || (int) c == 13){
                         row++;                          //upon newline, keep track of position of reader
                         col = 0;
                         //***return "\\LF";
@@ -134,10 +134,10 @@ public class Scanner {
                             tokenType = 5;
                             symbol = symbol.concat(Character.toString(c));
                             c = getChar();
-                            while(c != '"'&&(int)c != 10){
+                            while(c != '"'&&(int)c != 10&&(int) c != 13){
                                 symbol = symbol.concat(Character.toString(c));
                                 c = getChar();
-                            }   if ((int)c == 10) {
+                            }   if ((int)c == 10 || (int) c == 13) {
                                 //if newline found before closing ", error encountered
                                 state = -5;
                                 break OUTER;
@@ -172,7 +172,7 @@ public class Scanner {
                     //space, end of line, or end of file cause symbol to return
                     if (c == ' '){
                         return symbol;
-                    } else if ((int) c == 10) {
+                    } else if ((int) c == 10 || (int) c == 13) {
                         EOL = true;
                         return symbol;
                     } else if ((int) c == 6000){
@@ -194,7 +194,7 @@ public class Scanner {
                     //space, end of line, or end of file cause symbol to return
                     if (c == ' '){
                         return symbol;
-                    } else if ((int) c == 10) {
+                    } else if ((int) c == 10 || (int) c == 13) {
                         EOL = true;
                         return symbol;
                     } else if ((int) c == 6000){
@@ -209,7 +209,7 @@ public class Scanner {
                     errorCount++;
                     //If an unidentified symbol is found, skips to next whitespace
                     while (!(c == ' ')&&!eofReached){
-                        if ((int)c == 10){
+                        if ((int)c == 10 || (int) c == 13){
                             row++;
                             break;
                         }
