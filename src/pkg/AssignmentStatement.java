@@ -1,11 +1,13 @@
+/**
+ * AssignmentStatement.java
+ * Noah Huck
+ * CS4308
+ * Section 03
+ * 29 April 2019
+ */
 
 package pkg;
 
-/**
- *
- * @author Noah Huck
- * May 1, 2019
- */
 public class AssignmentStatement {
 
     public AssignmentStatement(Identifier id, String value){

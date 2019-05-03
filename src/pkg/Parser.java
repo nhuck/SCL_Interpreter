@@ -22,6 +22,7 @@ public class Parser {
     private final ArrayList<String> wsal;       //ArrayList where current statement is being built (working statement array list)
     private int activeIdentifier;           //for use in assignment / declaration of identifiers at execution time
     private String activeIdentifierName;    //for use in assignment / declaration of identifiers at execution time
+    private AssignmentStatement assignmentStatement;
     File f;
     
     java.util.Scanner inputHandler;
@@ -281,7 +282,7 @@ public class Parser {
         /** BNF: SET name_ref EQUOP expr */
         
         if (nextTok == IDENT){
-            //In 3rd project module, this call is necessary to establish current identifier as active
+            // this call is necessary to establish current identifier as active
             lookup(nextLex);        
             
             wsal.add(nextLex);
@@ -291,7 +292,7 @@ public class Parser {
                 scan();
                 if(running){
                     Identifier id = idTable.get(activeIdentifier);
-                    new AssignmentStatement(id, expr());
+                    assignmentStatement = new AssignmentStatement(id, expr());
                 } else
                     expr();
                 /**** Code replaced by AssignmentStatement.java ****/
@@ -315,33 +316,37 @@ public class Parser {
     }
     private void input() {
         /** BNF: INPUT name_ref
-         BNF sample contradicts sample file where a string is included.
-         Actual implementation here allows for INPUT string_literal COMMA name_ref */
-        if (nextTok == STRING){
-            wsal.add(nextLex);
-            if(running)output(nextLex);
-            scan();
-            if (nextTok == COMMA){
+        BNF sample contradicts sample file where a string is included.
+        Actual implementation here allows for INPUT string_literal COMMA name_ref */
+        switch (nextTok) {
+            case STRING:
+                wsal.add(nextLex);
+                if(running)output(nextLex);
+                scan();
+                if (nextTok == COMMA){
+                    wsal.add(nextLex);
+                    scan();
+                    if (nextTok == IDENT){
+                        wsal.add(nextLex);
+                        if (running) {
+                            lookup(nextLex);        //index of current identifier in idTable stored to global variable
+                            String s = inputHandler.nextLine();
+                            Identifier id = idTable.get(activeIdentifier);      // nre reference to existing identifier in memory
+                            assignmentStatement = new AssignmentStatement(id, s);
+                        }
+                        scan();
+                    } else
+                        error("Input statement invalid syntax", scanner.getRow(), true);
+                } else
+                    error("Input statement invalid syntax", scanner.getRow(), true);
+                break;
+            case IDENT:
                 wsal.add(nextLex);
                 scan();
-                if (nextTok == IDENT){
-                    wsal.add(nextLex);
-                    if (running) {
-                        lookup(nextLex);
-                        String s = inputHandler.nextLine();
-                        Identifier id = idTable.get(activeIdentifier);
-                        new AssignmentStatement(id, s);
-                    }
-                    scan();
-                } else
+                break;
+            default:
                 error("Input statement invalid syntax", scanner.getRow(), true);
-            } else
-            error("Input statement invalid syntax", scanner.getRow(), true);
-        } else if (nextTok == IDENT) {
-            wsal.add(nextLex);
-            scan();
-        } else {
-            error("Input statement invalid syntax", scanner.getRow(), true);
+                break;
         }
         if(running)output("\n");
     }
