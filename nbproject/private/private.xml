@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/Identifier.java</file>
             <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/huck_input.scl</file>
             <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/Parser.java</file>
             <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/IntegerIdentifier.java</file>
-            <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/SCLMain.java</file>
             <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/Scanner.java</file>
-            <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/Constants.java</file>
+            <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/AssignmentStatement.java</file>
             <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/StringIdentifier.java</file>
+            <file>file:/Users/noahhuck/NetBeansProjects/InterpreterSCL/src/pkg/Interpreter.java</file>
         </group>
     </open-files>
 </project-private>
