@@ -16,6 +16,7 @@ begin
     input "how many times should loop run: ", max
     
     display "Would you like to add 2 to x, or multiply x by 2 ", max , " times?"
+    display "(note: choosing multiplication with a large number of iterations can overflow the integer data type)"
     input "Enter 0 to use addition, enter non-zero integer to use multiplication: ", operation
 
     display "x is: ", x
