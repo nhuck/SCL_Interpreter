@@ -18,11 +18,11 @@ public class Parser {
     boolean EOF;                            // boolean value to indicate when end of file has been reached
     private int nextTok;                //stores the most recent token value from scanner
     private String nextLex;             //stores the most recent lexeme from the scanner
-    protected ArrayList<Identifier> idTable;        //table to store identifiers as they're created
+    protected ArrayList<Identifier> idTable;        //table to store identifiers as they're created. Also serves as memory at execution time
     private final ArrayList<String> wsal;       //ArrayList where current statement is being built (working statement array list)
-    private int activeIdentifier;           //for use in assignment / declaration of identifiers at execution time
-    private String activeIdentifierName;    //for use in assignment / declaration of identifiers at execution time
-    private AssignmentStatement assignmentStatement;
+    private int activeIdentifier;           //Stores the index in idTable of the most recent identifier that has been called using lookup()
+    private String activeIdentifierName;    //for use in declaration of identifiers at execution time
+    private AssignmentStatement assignmentStatement;        //object used as arbitrary reference for new assignment statements
     File f;
     
     java.util.Scanner inputHandler;

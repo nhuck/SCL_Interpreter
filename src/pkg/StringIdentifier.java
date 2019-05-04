@@ -16,9 +16,11 @@ public class StringIdentifier extends Identifier {
         super(name, type);
         this.value = value;
     }
+    @Override
     public String getValue(){
         return value;
     }
+    @Override
     public void setValue(String newValue){
         value = newValue;
     }

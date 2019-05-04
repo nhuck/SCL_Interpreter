@@ -26,6 +26,7 @@ public abstract class Identifier {
     public int getType(){
         return type;
     }
+    //abstract methods present so objects cast as Identifier can use these methods
     public abstract String getValue();
     public abstract void setValue(String value);
 }

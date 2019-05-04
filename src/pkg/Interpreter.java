@@ -23,6 +23,7 @@ public class Interpreter {
                         // parseProgram parses for 1 complete function at a time
                         // loop will execute until all functions have been parsed
                     }
+                    System.out.println("\nEnd of file reached.");
                     break;
                 case "-s":
                     System.out.printf("\nNow Scanning file %s \n\n", args[1]);
@@ -33,6 +34,7 @@ public class Interpreter {
                         System.out.printf("%s, row %d, col %d, symbol: %s\n",
                                 s.convertType(s.nextToken()), s.getRow(), s.getCol(), s.currentLexeme);
                     }
+                    System.out.println("\nEnd of file reached.");
                     break;
                 case "-e":
                     System.out.printf("\nNow Executing file %s \n\n", args[1]);
@@ -43,6 +45,7 @@ public class Interpreter {
                         // parser both parses line by line and then executes corresponding function
                         // loop will execute until all functions have been parsed
                     }
+                    break;
             }
         } else {
         System.out.printf("\nNow Executing file: %s \n\n", args[0]);
@@ -54,9 +57,8 @@ public class Interpreter {
                 // loop will execute until all functions have been parsed
             }
         }
-//        System.out.println("\nEnd of file reached.");
 
-     //   for testing purposes:
+//   for testing purposes:
 //        System.out.println("\nIdentifier Table: \n\n");
 //        p2.printIdTable();
     }

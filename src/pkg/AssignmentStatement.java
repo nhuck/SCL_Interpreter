@@ -10,9 +10,13 @@ package pkg;
 
 public class AssignmentStatement {
 
+    // class is used to assign value to identifiers
+    
     public AssignmentStatement(Identifier id, String value){
         id.setValue(value);
-//        System.out.println("Value changed: "+id.toString());
     }
-
+    /**
+     * This class could have been implemented as a method in Parser
+     * Decision made to create a unique class for clarity
+     */
 }

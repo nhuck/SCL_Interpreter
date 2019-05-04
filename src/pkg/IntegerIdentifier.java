@@ -16,18 +16,21 @@ public class IntegerIdentifier extends Identifier{
         super(name, type);
         this.value = value;
     }
+    @Override
     public String getValue(){
         return Integer.toString(value);
     }
-    public int getIntValue(){
-        return value;
-    }
+    @Override
     public void setValue(String newValue){
         value = Integer.parseInt(newValue);
     }
     @Override
     public String toString(){
         return "["+name+","+type+","+value+"]";
+    }
+    // second set of accessor/mutator for retrieving/setting value as integer not string
+    public int getIntValue(){
+        return value;
     }
     public void setIntValue(int newValue){
         value = newValue;
