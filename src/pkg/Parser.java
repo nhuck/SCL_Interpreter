@@ -23,7 +23,7 @@ public class Parser {
     private int activeIdentifier;           //Stores the index in idTable of the most recent identifier that has been called using lookup()
     private String activeIdentifierName;    //for use in declaration of identifiers at execution time
     private AssignmentStatement assignmentStatement;        //object used as arbitrary reference for new assignment statements
-    File f;
+    private final File f;
     
     java.util.Scanner inputHandler;
     
@@ -48,7 +48,6 @@ public class Parser {
     public void scan(){                    //method calls the scanner, leaves next token and lexeme in class variables
         nextTok = scanner.nextToken();
         nextLex = scanner.currentLexeme;
-//        System.out.println("Found "+nextTok+" "+nextLex);
     }
     public boolean endOfFileReached(){      //public access to private end of file boolean
         return EOF;
